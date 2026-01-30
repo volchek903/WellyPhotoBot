@@ -1,0 +1,9 @@
+services:
+  welly-bot:
+    build: .
+    container_name: welly-photo-bot
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
