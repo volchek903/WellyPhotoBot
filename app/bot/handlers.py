@@ -387,8 +387,16 @@ async def _create_payment(message: Message, user_id: int, count: int) -> None:
         status=status,
     )
     await message.answer(
-        f"💳 К оплате: {price} ₽ за {count} генераций.",
-        reply_markup=pay_button(confirmation_url, payment_id),
+        "💳 К оплате: "
+        f"{price} ₽ за {count} генераций.\n\n"
+        "Оплачивая, вы соглашаетесь с условиями Политики конфиденциальности "
+        "и Договора оферты.",
+        reply_markup=pay_button(
+            confirmation_url,
+            payment_id,
+            "https://telegra.ph/Politika-konfidecivlnosti-01-28",
+            "https://telegra.ph/Dogovor-oferta-okazaniya-uslug-01-28",
+        ),
     )
 
 

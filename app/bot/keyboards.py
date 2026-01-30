@@ -35,10 +35,19 @@ def buy_packages_keyboard(packages: list[int]) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 
-def pay_button(url: str, payment_id: str) -> InlineKeyboardMarkup:
+def pay_button(
+    url: str,
+    payment_id: str,
+    privacy_url: str,
+    offer_url: str,
+) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
             [InlineKeyboardButton(text="Оплатить", url=url)],
+            [
+                InlineKeyboardButton(text="Политика конфиденциальности", url=privacy_url),
+                InlineKeyboardButton(text="Договор оферты", url=offer_url),
+            ],
             [
                 InlineKeyboardButton(
                     text="Проверить оплату",
